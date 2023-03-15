@@ -14,7 +14,19 @@ fn sum(x, y: i32) {
     x + y;
 }
 ```
+```rust
+fn main() {
+    // 不要修改下面两行代码!
+    let (x, y) = (1, 2);
+    let s = sum(x, y);
 
+    assert_eq!(s, 3);
+}
+
+fn sum(x: i32, y: i32) -> i32{
+    x + y
+}
+```
 
 2. 🌟🌟
 ```rust,editable
@@ -24,6 +36,16 @@ fn main() {
 
 // 使用另一个类型来替代 i32
 fn print() -> i32 {
+   println!("hello,world");
+}
+```
+```rust
+fn main() {
+   print();
+}
+
+// 使用另一个类型来替代 i32
+fn print() -> () {
    println!("hello,world");
 }
 ```
@@ -40,6 +62,17 @@ fn main() {
 fn never_return() -> ! {
     // 实现这个函数，不要修改函数签名!
     
+}
+```
+```rust
+fn main() {
+    never_return();
+}
+
+fn never_return() -> ! {
+    // 实现这个函数，不要修改函数签名! 
+    loop {
+    }
 }
 ```
 
@@ -76,6 +109,23 @@ fn never_return_fn() -> ! {
 fn main() {
     // 填空
     let b = __;
+
+    let _v = match b {
+        true => 1,
+        // 发散函数也可以用于 `match` 表达式，用于替代任何类型的值
+        false => {
+            println!("Success!");
+            panic!("we have no value for `false`, but we can panic")
+        }
+    };
+
+    println!("Exercise Failed if printing out this line!");
+}
+```
+```rust
+fn main() {
+    // 填空
+    let b = false;
 
     let _v = match b {
         true => 1,
